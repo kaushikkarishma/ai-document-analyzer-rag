@@ -1,84 +1,135 @@
-# AI Document Analyzer
+# AI Document Analyzer (RAG + Ollama)
 
-A local Document Intelligence Assistant built in phases to learn the full RAG
-pipeline: parsing, chunking, embeddings, vector search, prompt construction,
-and local generation through Ollama.
+A Retrieval-Augmented Generation (RAG) based document question-answering application that allows users to upload documents, index them using vector embeddings, and ask natural language questions using a locally running LLM via Ollama.
 
-## Phase 0 Architecture
+---
 
-```text
-Upload
-  -> Parse
-  -> Chunk
-  -> Embed
-  -> Store
-  -> Query
-  -> Retrieve
-  -> Augment Prompt
-  -> Ollama
-  -> Response with Sources
+## Features
+
+- Upload PDF and text documents
+- Automatic document parsing and chunking
+- Vector embeddings using local embedding models
+- ChromaDB vector storage
+- Semantic similarity search
+- Context-aware answer generation using Ollama
+- React frontend with FastAPI backend
+- Fully local inference (no cloud APIs required)
+
+---
+
+## Tech Stack
+
+### Backend
+- FastAPI
+- Python
+- ChromaDB
+- Ollama
+- HTTPX
+
+### Frontend
+- React
+- Vite
+- JavaScript
+
+### AI / ML
+- Retrieval-Augmented Generation (RAG)
+- Vector Embeddings
+- Semantic Search
+- Prompt Engineering
+
+---
+
+## Project Structure
+
+```
+backend/
+    app/
+        ingestion/
+        rag/
+        main.py
+
+frontend/
+    src/
+    public/
+
+README.md
 ```
 
-## Current Stack
+---
 
-- Backend: FastAPI
-- Local LLM: Ollama with `llama3.1:8b`
-- Local embeddings: Ollama with `nomic-embed-text`
-- Vector store: ChromaDB
-- Document parsing: `pdfplumber` and `python-docx`
-- Frontend: React with Vite
+## RAG Pipeline
 
-## Phase 0 Setup
+```
+Document Upload
+        │
+        ▼
+Document Parsing
+        │
+        ▼
+Chunking
+        │
+        ▼
+Embedding Generation
+        │
+        ▼
+ChromaDB Vector Store
+        │
+        ▼
+Similarity Search
+        │
+        ▼
+Prompt Construction
+        │
+        ▼
+Ollama
+        │
+        ▼
+Generated Answer
+```
 
-From the `backend` folder:
+---
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/kaushikkarishma/ai-document-analyzer-rag.git
+```
+
+### Backend
+
+```bash
+cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Then open:
+### Frontend
 
-- API health: <http://127.0.0.1:8000/health>
-- Ollama health: <http://127.0.0.1:8000/health/ollama>
-- API docs: <http://127.0.0.1:8000/docs>
-
-## Phase 1 Endpoint
-
-Use FastAPI docs to test document parsing and chunking:
-
-1. Open <http://127.0.0.1:8000/docs>
-2. Expand `POST /documents/preview`
-3. Upload a `.pdf`, `.txt`, or `.docx`
-4. Inspect the returned pages and chunks before moving on to embeddings
-
-## Phase 2 Endpoints
-
-Use these endpoints to test embeddings and vector search without involving the
-LLM answer generator yet:
-
-1. Open <http://127.0.0.1:8000/docs>
-2. Expand `POST /documents/index`
-3. Upload a `.pdf`, `.txt`, or `.docx`
-4. Confirm the response reports the document's `chunk_count`
-5. Expand `POST /search`
-6. Send a question such as:
-
-```json
-{
-  "query": "What is this assignment about?",
-  "top_k": 4
-}
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-The response should show the most similar chunks, their distances, and source
-metadata such as file name and page number.
+---
 
-Make sure these Ollama models are available:
+## Future Improvements
 
-```powershell
-ollama pull llama3.1:8b
-ollama pull nomic-embed-text
-```
+- Multi-document support
+- Conversation history
+- Streaming responses
+- User authentication
+- Hybrid search
+- OCR support
+
+---
+
+## Author
+
+Karishma Kaushik
+
+B.Tech AIML | COER University
+
+Learning Retrieval-Augmented Generation, LLMs and AI Application Development.

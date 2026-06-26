@@ -1,8 +1,8 @@
 # AI Document Analyzer (RAG + Ollama)
 
-A Retrieval-Augmented Generation (RAG) based document question-answering application that allows users to upload documents, index them using vector embeddings, and ask natural language questions using a locally running LLM via Ollama.
+A Retrieval-Augmented Generation (RAG) based document question-answering application that allows users to upload documents, index them using vector embeddings, and ask natural language questions using a locally running LLM via Ollama. Still in a developing stage. Better UI, better RAG retrieval in making.
 
----
+--
 
 ## Features
 

@@ -1,0 +1,35 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+backend/data/uploads/*
+backend/data/chroma/*
+
+data/uploads/*
+data/chroma/*
+!backend/data/uploads/.gitkeep
+!backend/data/chroma/.gitkeep
+node_modules/
+dist/
+
+# VS Code
+.vscode/
+
+# Python cache
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+coverage/
+
+# Project outputs
+outputs/
+work/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

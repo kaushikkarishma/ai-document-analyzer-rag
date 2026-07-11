@@ -245,3 +245,12 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+.document-item {
+  transition: all 0.2s ease;
+}
+
+.document-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}

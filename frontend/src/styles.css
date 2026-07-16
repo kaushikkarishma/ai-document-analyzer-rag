@@ -83,6 +83,16 @@ textarea {
   padding: 12px 14px;
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #1b4f47;
+  transform: translateY(-1px);
+}
+
+.primary-button:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .primary-button:disabled {

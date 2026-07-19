@@ -271,3 +271,8 @@ textarea {
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
+
+.composer textarea::placeholder {
+  color: #8b8b8b;
+  font-style: italic;
+}

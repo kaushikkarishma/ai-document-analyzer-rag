@@ -226,6 +226,13 @@ textarea {
   border: 1px solid #cfc7bb;
   border-radius: 8px;
   padding: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.composer textarea:focus {
+  outline: none;
+  border-color: #225e54;
+  box-shadow: 0 0 0 3px rgba(34, 94, 84, 0.15);
 }
 
 .status {
